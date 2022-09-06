@@ -1,55 +1,29 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "create-did",
-  "author": "Brian Desiderio",
-  "module": "dist/create-did.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/create-did.cjs.production.min.js",
-      "limit": "10 KB"
+    "private": true,
+    "name": "extrimian",
+    "version": "1.0.0",
+    "workspaces": [
+        "packages/extrimian-npm/packages/ethr/**",
+        "packages/extrimian-npm/packages/did/core",
+        "packages/extrimian-npm/packages/did/resolver",
+        "packages/extrimian-npm/packages/did/registry",
+        "packages/extrimian-npm/packages/core/**",
+        "packages/extrimian-npm/packages/dwn-client/**",
+        "packages/extrimian-npm/packages/vc/core",
+        "packages/extrimian-npm/packages/kms/core",
+        "packages/extrimian-npm/packages/vc/**",
+        "packages/extrimian-npm/packages/kms/suite/vc/jsonld",
+        "packages/extrimian-npm/packages/kms/suite/**",
+        "packages/extrimian-npm/packages/kms/client",
+        "packages/create-did-example",
+        "packages/create-did"
+    ],
+    "scripts": {
+        "start": "yarn workspace create-did start",
+        "build:all": "yarn workspaces run build",
+        "clean": "find . \\( -name 'node_modules' -o -name 'dist' -o -name 'lib' \\) -type d -prune -exec rm -rf '{}' +"
     },
-    {
-      "path": "dist/create-did.esm.js",
-      "limit": "10 KB"
+    "dependencies": {
+        "@types/node": "^17.0.41"
     }
-  ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.0.1",
-    "husky": "^8.0.1",
-    "size-limit": "^8.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.2"
-  }
 }

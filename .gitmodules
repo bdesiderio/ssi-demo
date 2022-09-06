@@ -1,0 +1,3 @@
+[submodule "stage1/workshop/create-did/packages/extrimian-npm"]
+	path = stage1/workshop/create-did/packages/extrimian-npm
+	url = https://github.com/extrimian/extrimian-npm.git
